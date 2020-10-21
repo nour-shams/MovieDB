@@ -5,7 +5,12 @@ const mydate = new Date();
 
 const time = mydate.getHours() + ":" + mydate.getMinutes();
   
-
+const movies = [
+    { title: 'Jaws', year: 1975, rating: 8 },
+    { title: 'Avatar', year: 2009, rating: 7.8 },
+    { title: 'Brazil', year: 1985, rating: 8 },
+    { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
+]
 
 app.get('/', (req, res) => {
   res.send('ok')
@@ -50,4 +55,20 @@ app.get('/time', function (req, res) {
         res.send({ status: 200, message: "Hello, " + id.ID })
     })
 
+    app.delete('/movies/delete', function (req, res) {
+        res.send('delete movie')
+      })
+
+      app.patch('/movies/update', function (req, res) {
+        res.send('update movie')
+      })
+
+      app.post('/movies/create', function (req, res) {
+        res.send('create movie')
+      })
+
+      app.get('/movies/read', function (req, res) {
     
+        res.send({status:200, data:movies })
+      })
+      
