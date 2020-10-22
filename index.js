@@ -86,5 +86,24 @@ app.get('/time', function (req, res) {
         
         res.send({status:200, data:sortByAttribute(movies, 'title') })
       })
-      
+
+      app.get('/movies/read/id/:ID', function(req, res) {
+
+        data = req.params;
+        var movie = "";
+        var exist = false;
+        movies.map(item =>{if(item.ID == data.id)
+        {
+            exist = true;
+            movie= item;
+        }
+        })
+        if (exist)
+        {
+          res.send({status:200, data:movie})
+        }
+        else{
+          res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+        }
+      })
 
