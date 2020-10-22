@@ -72,3 +72,19 @@ app.get('/time', function (req, res) {
         res.send({status:200, data:movies })
       })
       
+      app.get('/movies/read/by-date', function (req, res) {
+        
+        res.send({status:200, data:sortByAttribute(movies, 'year') })
+      })
+
+      app.get('/movies/read/by-rating', function (req, res) {
+        
+        res.send({status:200, data:sortByAttribute(movies, 'rating') })
+      })
+
+      app.get('/movies/read/by-title', function (req, res) {
+        
+        res.send({status:200, data:sortByAttribute(movies, 'title') })
+      })
+      
+
